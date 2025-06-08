@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional CV</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        body {
+            width: 300mm;
+            min-height: 297mm;
+            padding: 10mm;
+            margin: 0 auto;
+            background: white;
+            color: #2d3748;
+        }
+
+        .cv-container {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 2rem;
+            max-width: 100%;
+        }
+
+        .sidebar {
+            background: #f7fafc;
+            padding: 1.5rem;
+            border-radius: 8px;
+        }
+
+        .main-content {
+            padding-right: 1rem;
+        }
+
+        .header {
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .name {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1a202c;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.5px;
+        }
+
+        .title {
+            font-size: 18px;
+            color: #4a5568;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info {
+            color: #4a5568;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .section {
+            margin-bottom: 1.5rem;
+        }
+
+        .section-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #2d3748;
+            border-bottom: 2px solid #4299e1;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .section-title i {
+            color: #4299e1;
+        }
+
+        .summary {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #4a5568;
+        }
+
+        .experience-item {
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .company-icon {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #ebf8ff;
+            border-radius: 4px;
+            color: #2b6cb0;
+        }
+
+        .job-title {
+            font-weight: 600;
+            color: #2d3748;
+            font-size: 15px;
+            margin-bottom: 0.25rem;
+        }
+
+        .company {
+            color: #4299e1;
+            font-size: 14px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .date {
+            color: #718096;
+            font-size: 13px;
+            margin: 0.25rem 0;
+        }
+
+        .description {
+            font-size: 14px;
+            color: #4a5568;
+            line-height: 1.6;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background: #ebf8ff;
+            color: #2b6cb0;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 13px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-tag i {
+            font-size: 12px;
+        }
+
+        .education-item {
+            margin-bottom: 1rem;
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .education-icon {
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: #4299e1;
+        }
+
+        .degree {
+            font-weight: 600;
+            color: #2d3748;
+            font-size: 14px;
+        }
+
+        .school {
+            color: #4299e1;
+            font-size: 14px;
+        }
+
+        .achievements {
+            margin-top: 0.5rem;
+            font-size: 13px;
+            color: #4a5568;
+            line-height: 1.5;
+        }
+
+        .projects {
+            margin-bottom: 1rem;
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .project-icon {
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: #4299e1;
+        }
+
+        .project-title {
+            font-weight: 600;
+            color: #2d3748;
+            font-size: 14px;
+        }
+
+        .project-tech {
+            color: #718096;
+            font-size: 13px;
+            margin: 0.25rem 0;
+        }
+
+        .bullet-point {
+            margin-left: 1rem;
+            position: relative;
+        }
+
+        .bullet-point::before {
+            content: "•";
+            position: absolute;
+            left: -1rem;
+            color: #4299e1;
+        }
+
+        .location {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .location-icon {
+            color: #718096;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-item i {
+            width: 16px;
+            color: #4299e1;
+        }
+    </style>
+</head>
+<body>
+<div class="cv-container">
+    <div class="sidebar">
+        <div class="header">
+            <div class="name">Anton Shepotko</div>
+            <div class="title">Staff Software Engineer</div>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Limassol, Cyprus</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-plane-departure"></i>
+                    <span>Ready to relocate</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>shepotko.anton@gmail.com</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>+357 99299111</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-linkedin"></i>
+                    <span>linkedin.com/in/anton-shepotko</span>
+                </div>
+<!--                <div class="contact-item">-->
+<!--                    <i class="fab fa-github"></i>-->
+<!--                    <span>github.com/AntShep</span>-->
+<!--                </div>-->
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">
+                <i class="fas fa-code"></i>
+                Skills
+            </div>
+            <div class="skills">
+                <span class="skill-tag"><i class="fab fa-java"></i>Java</span>
+                <span class="skill-tag"><i class="fab fa-aws"></i>AWS</span>
+                <span class="skill-tag"><i class="fas fa-people-group"></i>Team Leadership</span>
+                <span class="skill-tag"><i class="fas fa-comments"></i>Communication</span>
+                <span class="skill-tag"><i class="fas fa-circle-check"></i>Problem-Solving</span>
+                <span class="skill-tag"><i class="fas fa-diagram-project"></i>System Design</span>
+                <span class="skill-tag"><i class="fas fa-sitemap"></i>Distributed Systems</span>
+                <span class="skill-tag"><i class="fas fa-microchip"></i>Microservices</span>
+                <span class="skill-tag"><i class="fa-solid fa-gauge-high"></i>Load Testing</span>
+                <span class="skill-tag"><i class="fas fa-database"></i>SQL</span>
+                <span class="skill-tag"><i class="fas fa-file"></i>NoSQL</span>
+                <span class="skill-tag"><i class="fas fa-code-branch"></i>CI/CD</span>
+                <span class="skill-tag"><i class="fab fa-docker"></i>Docker</span>
+                <span class="skill-tag"><i class="fas fa-cube"></i>Kubernetes</span>
+                <span class="skill-tag"><i class="fab fa-python"></i>Python</span>
+                <span class="skill-tag"><i class="fab fa-php"></i>PHP</span>
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="main-content">
+        <div class="section">
+            <div class="section-title">
+                <i class="fas fa-user"></i>
+                Professional Summary
+            </div>
+            <div class="summary">
+                Senior Software Engineer with 5+ years of experience in full-stack development, specializing in scalable web applications and cloud architecture. Proven track record of delivering high-impact projects at leading tech companies. Expert in Python, JavaScript, and cloud technologies with a strong focus on system design and performance optimization. Passionate about building efficient, scalable solutions and mentoring junior developers.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">
+                <i class="fas fa-briefcase"></i>
+                Work Experience
+            </div>
+
+            <div class="experience-item">
+                <div class="company-icon">
+                    <i class="fas fa-building"></i>
+                </div>
+                <div class="job-title">Senior Software Engineer</div>
+                <div class="company">
+                    <i class="fab fa-google"></i>
+                    Tech Company Inc.
+                </div>
+                <div class="date">January 2021 - Present</div>
+                <div class="description">
+                    <div class="bullet-point">Led development of microservices architecture handling 1M+ daily requests, reducing latency by 40%</div>
+                    <div class="bullet-point">Improved system performance by 40% through optimization and caching strategies</div>
+                    <div class="bullet-point">Mentored 3 junior developers and conducted code reviews for 5+ projects</div>
+                    <div class="bullet-point">Implemented automated testing increasing code coverage from 60% to 85%</div>
+                    <div class="bullet-point">Reduced cloud infrastructure costs by 25% through resource optimization</div>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="company-icon">
+                    <i class="fas fa-building"></i>
+                </div>
+                <div class="job-title">Software Engineer</div>
+                <div class="company">
+                    <i class="fab fa-microsoft"></i>
+                    Previous Tech Corp
+                </div>
+                <div class="date">June 2018 - December 2020</div>
+                <div class="description">
+                    <div class="bullet-point">Developed and maintained RESTful APIs serving 500K+ users with 99.9% uptime</div>
+                    <div class="bullet-point">Implemented CI/CD pipelines reducing deployment time by 60%</div>
+                    <div class="bullet-point">Collaborated with cross-functional teams to deliver features on schedule</div>
+                    <div class="bullet-point">Designed and implemented real-time data processing system handling 10TB daily</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">
+                <i class="fas fa-project-diagram"></i>
+                Notable Projects
+            </div>
+            <div class="projects">
+                <i class="fas fa-code-branch project-icon"></i>
+                <div class="project-title">Distributed Task Queue System</div>
+                <div class="project-tech">Python, Redis, RabbitMQ, Docker</div>
+                <div class="description">
+                    <div class="bullet-point">Built scalable task queue system processing 100K+ jobs daily</div>
+                    <div class="bullet-point">Implemented fault tolerance and automatic recovery mechanisms</div>
+                </div>
+            </div>
+            <div class="projects">
+                <i class="fas fa-chart-line project-icon"></i>
+                <div class="project-title">Real-time Analytics Dashboard</div>
+                <div class="project-tech">React, Node.js, WebSocket, MongoDB</div>
+                <div class="description">
+                    <div class="bullet-point">Developed real-time dashboard for monitoring system metrics</div>
+                    <div class="bullet-point">Reduced data processing latency by 70% through optimized algorithms</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
